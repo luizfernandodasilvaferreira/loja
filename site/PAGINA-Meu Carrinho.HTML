@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        /* Adapte os estilos conforme necessário */
+        #carrinho {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="carrinho">
+    <h2>Carrinho de Compras</h2>
+    <p>Produto: Nome do Produto</p>,
+    <input type="text" id="ex:camisa masculina" value="EX:camisa masculina" min="EX:camisa masculina"></p>
+    <p>codigo de barra do produto:</p>,
+    <input type="text" id="EX:999999" value="EX:999999" min="EX:999999"></p>
+    <p>Preço: R$ <span id="preco"></span></p>
+    <input type="number" id="valor" value="50,00" min="50,00"></p>
+    <p>Quantidade: <input type="number" id="quantidade" value="1" min="1"></p>
+    <button type="button" onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>  <a href="index.htmld">volta</a>
+   
+</div>
+
+<script>
+    function adicionarAoCarrinho() {
+        // Obter valores
+        var precoUnitario = parseFloat(document.getElementById('preco').innerText);
+        var quantidade = parseInt(document.getElementById('quantidade').value);
+
+        // Calcular total
+        var total = precoUnitario * quantidade;
+
+        // Atualizar o total exibido
+        document.getElementById('total').innerText = total.toFixed(2);
+
+        // Simular envio para o backend
+        enviarDetalhesAoBackend({ produto: 'Nome do Produto', preco: precoUnitario, quantidade: quantidade, total: total });
+    }
+
+    function enviarDetalhesAoBackend(detalhesPedido) {
+        // Simular uma requisição Ajax para enviar detalhes do pedido ao backend
+        // Substitua isso pela lógica real de integração com o seu sistema backend
+        console.log('Enviando detalhes do pedido ao backend:', detalhesPedido);
+
+        // Aqui você pode usar bibliotecas como fetch, axios ou jQuery.ajax para enviar dados ao seu servidor
+        // Exemplo usando fetch:
+        // fetch('url_do_seu_backend', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(detalhesPedido),
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Resposta do backend:', data))
+        // .catch(error => console.error('Erro ao enviar para o backend:', error));
+    }
+</script>
+
+</body>
+</html>
